@@ -32,7 +32,7 @@ return {
       ['htop'] = { wezterm.nerdfonts.md_chart_areaspline, color = { fg = colors.ansi[2] } },
       ['kubectl'] = { wezterm.nerdfonts.md_docker, color = { fg = colors.ansi[5] } },
       ['kuberlr'] = { wezterm.nerdfonts.md_docker, color = { fg = colors.ansi[5] } },
-      ['kulala'] = { wezterm.nerdfonts.fa_paper_plane, color = { fg = colors.ansi[5] } },
+      ['kulala'] = { wezterm.nerdfonts.fa_paper_plane, color = { fg = colors.brights[5] } },
       ['lazydocker'] = { wezterm.nerdfonts.md_docker, color = { fg = colors.ansi[5] } },
       ['lazygit'] = { wezterm.nerdfonts.cod_github, color = { fg = colors.brights[4] or nil } },
       ['lua'] = { wezterm.nerdfonts.seti_lua, color = { fg = colors.ansi[5] } },
@@ -88,12 +88,13 @@ return {
       foreground_process_name = tab.active_pane.domain_name ~= 'local' and tab.active_pane.domain_name or 'wezterm'
     end
 
+    local cwd = ''
+
     local icon_set = false
     if opts.icons_enabled and opts.process_to_icon then
       for process, _ in pairs(opts.process_to_icon) do
         if foreground_process_name:lower():match('^' .. process) then
           local cwd_uri = tab.active_pane.current_working_dir
-          local cwd = ''
           if cwd_uri then
             local file_path = cwd_uri.file_path
             cwd = file_path:match('([^/]+)/?$')
@@ -112,6 +113,9 @@ return {
       util.overwrite_icon(opts, opts.process_to_icon['default'])
     end
 
+    if foreground_process_name == 'nvim' and cwd == 'kulala' then
+      foreground_process_name = 'kulala'
+    end
     return foreground_process_name
   end,
 }
