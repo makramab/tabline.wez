@@ -32,6 +32,7 @@ return {
       ['htop'] = { wezterm.nerdfonts.md_chart_areaspline, color = { fg = colors.ansi[2] } },
       ['kubectl'] = { wezterm.nerdfonts.md_docker, color = { fg = colors.ansi[5] } },
       ['kuberlr'] = { wezterm.nerdfonts.md_docker, color = { fg = colors.ansi[5] } },
+      ['kulala'] = { wezterm.nerdfonts.fa_paper_plane, color = { fg = colors.ansi[5] } },
       ['lazydocker'] = { wezterm.nerdfonts.md_docker, color = { fg = colors.ansi[5] } },
       ['lazygit'] = { wezterm.nerdfonts.cod_github, color = { fg = colors.brights[4] or nil } },
       ['lua'] = { wezterm.nerdfonts.seti_lua, color = { fg = colors.ansi[5] } },
@@ -91,7 +92,7 @@ return {
     if opts.icons_enabled and opts.process_to_icon then
       for process, _ in pairs(opts.process_to_icon) do
         if foreground_process_name:lower():match('^' .. process) then
-          util.overwrite_icon(opts, opts.process_to_icon['yazi'])
+          util.overwrite_icon(opts, opts.process_to_icon['kulala'])
           icon_set = true
           break
         end
