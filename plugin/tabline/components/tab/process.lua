@@ -102,6 +102,6 @@ return {
       util.overwrite_icon(opts, opts.process_to_icon['default'])
     end
 
-    return foreground_process_name
+    return ''
   end,
 }
