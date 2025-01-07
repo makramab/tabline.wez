@@ -92,7 +92,16 @@ return {
     if opts.icons_enabled and opts.process_to_icon then
       for process, _ in pairs(opts.process_to_icon) do
         if foreground_process_name:lower():match('^' .. process) then
-          util.overwrite_icon(opts, opts.process_to_icon['kulala'])
+          local cwd_uri = tab.active_pane.current_working_dir
+          local cwd = ''
+          if cwd_uri then
+            local file_path = cwd_uri.file_path
+            cwd = file_path:match('([^/]+)/?$')
+          end
+          if process == 'nvim' and cwd == 'kulala' then
+            process = 'kulala'
+          end
+          util.overwrite_icon(opts, opts.process_to_icon[process])
           icon_set = true
           break
         end
