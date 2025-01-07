@@ -17,8 +17,8 @@ end
 --- Returns the name of the package, used when requiring modules
 local function get_require_path()
   -- HTTPS version
-  local https_path = 'httpssCssZssZsgithubsDscomsZsmakramabsZstablinesDswez'
-  local https_path_slash = 'httpssCssZssZsgithubsDscomsZsmakramabsZstablinesDswezsZs'
+  local https_path = 'httpssCssZssZsgithubsDscomsZsmichaelbrusegardsZstablinesDswez'
+  local https_path_slash = 'httpssCssZssZsgithubsDscomsZsmichaelbrusegardsZstablinesDswezsZs'
   -- HTTP version (without the 's' in https)
   local http_path = 'httpCssZssZsgithubsDscomsZsmakramabsZstablinesDswez'
   local http_path_slash = 'httpCssZssZsgithubsDscomsZsmakramabsZstablinesDswezsZs'
