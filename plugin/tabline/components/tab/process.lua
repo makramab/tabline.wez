@@ -68,40 +68,5 @@ return {
     },
   },
   update = function(tab, opts)
-    -- get the foreground process name if available
-    if tab.active_pane and tab.active_pane.foreground_process_name then
-      foreground_process_name = tab.active_pane.foreground_process_name
-      foreground_process_name = foreground_process_name:match('([^/\\]+)[/\\]?$') or foreground_process_name
-    end
-
-    -- fallback to the title if the foreground process name is unavailable
-    -- Wezterm uses OSC 1/2 escape sequences to guess the process name and set the title
-    -- see https://wezfurlong.org/wezterm/config/lua/pane/get_title.html
-    -- title defaults to 'wezterm' if another name is unavailable
-    if foreground_process_name == '' then
-      foreground_process_name = (tab.tab_title and #tab.tab_title > 0) and tab.tab_title or tab.active_pane.title
-    end
-
-    -- if the tab active pane contains a non-local domain, use the domain name
-    if foreground_process_name == 'wezterm' then
-      foreground_process_name = tab.active_pane.domain_name ~= 'local' and tab.active_pane.domain_name or 'wezterm'
-    end
-
-    local icon_set = false
-    if opts.icons_enabled and opts.process_to_icon then
-      for process, _ in pairs(opts.process_to_icon) do
-        if foreground_process_name:lower():match('^' .. process) then
-          util.overwrite_icon(opts, opts.process_to_icon['cargo'])
-          icon_set = true
-          break
-        end
-      end
-    end
-
-    if not icon_set then
-      util.overwrite_icon(opts, opts.process_to_icon['default'])
-    end
-
-    return 'cargo'
   end,
 }
