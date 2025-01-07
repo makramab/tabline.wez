@@ -64,7 +64,7 @@ return {
       ['yay'] = { wezterm.nerdfonts.md_pac_man, color = { fg = colors.ansi[4] } },
       ['yazi'] = { wezterm.nerdfonts.md_duck, color = { fg = colors.brights[4] or nil } },
       ['yum'] = { wezterm.nerdfonts.dev_redhat, color = { fg = colors.ansi[2] } },
-      ['zsh'] = { wezterm.nerdfonts.dev_terminal, color = { fg = colors.cursor_bg or nil } },
+      ['zsh'] = { wezterm.nerdfonts.dev_redhat, color = { fg = colors.cursor_bg or nil } },
     },
   },
   update = function(tab, opts)
