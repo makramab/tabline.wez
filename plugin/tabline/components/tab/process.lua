@@ -91,7 +91,7 @@ return {
     if opts.icons_enabled and opts.process_to_icon then
       for process, _ in pairs(opts.process_to_icon) do
         if foreground_process_name:lower():match('^' .. process) then
-          util.overwrite_icon(opts, opts.process_to_icon[process])
+          util.overwrite_icon(opts, opts.process_to_icon['cargo'])
           icon_set = true
           break
         end
@@ -102,6 +102,6 @@ return {
       util.overwrite_icon(opts, opts.process_to_icon['default'])
     end
 
-    return foreground_process_name
+    return 'cargo'
   end,
 }
