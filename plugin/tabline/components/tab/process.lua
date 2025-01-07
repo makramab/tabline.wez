@@ -39,7 +39,7 @@ return {
       ['nix'] = { wezterm.nerdfonts.linux_nixos, color = { fg = colors.ansi[5] } },
       ['node'] = { wezterm.nerdfonts.md_nodejs, color = { fg = colors.brights[2] } },
       ['npm'] = { wezterm.nerdfonts.md_npm, color = { fg = colors.brights[2] } },
-      ['nvim'] = { wezterm.nerdfonts.md_npm, color = { fg = colors.ansi[3] } },
+      ['nvim'] = { wezterm.nerdfonts.custom_neovim, color = { fg = colors.ansi[3] } },
       ['pacman'] = { wezterm.nerdfonts.md_pac_man, color = { fg = colors.ansi[4] } },
       ['paru'] = { wezterm.nerdfonts.md_pac_man, color = { fg = colors.ansi[4] } },
       ['pnpm'] = { wezterm.nerdfonts.md_npm, color = { fg = colors.brights[4] } },
